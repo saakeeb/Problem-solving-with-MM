@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Problem solving with MegaMind</h1>
+
+    <script>
+        // 1st problem
+        const first_array = [2, 4, 6, 7, 9, 3, 1];
+        let most_minimal_digit = first_array[0];
+        let most_maximum_digit = first_array[0];
+
+        for (let i = 0; i < first_array.length; i++) {
+            if (most_minimal_digit > first_array[i]) {
+                most_minimal_digit = first_array[i];
+            }
+            if (most_maximum_digit < first_array[i]) {
+                most_maximum_digit = first_array[i];
+            }
+        }
+
+        console.log('most_minimal_digit', most_minimal_digit);
+        console.log('most_maximum_digit', most_maximum_digit);
+        // 1st problem
+
+        // 2nd problem
+        const string_array = ['my', 'name', 'is', 'sakib', 'i', 'am', 'a', 'frontend', 'developer'];
+        let smallest_string = string_array[0];
+        let biggest_string = string_array[0];
+
+        for (let i = 0; i < string_array.length; i++) {
+            const len = string_array[i].length;
+            if (smallest_string.length > len) {
+                smallest_string = string_array[i];
+            }
+            if (biggest_string.length < len) {
+                biggest_string = string_array[i];
+            }
+        }
+
+        console.log('smallest_string=> ', smallest_string);
+        console.log('biggest_string=> ', biggest_string);
+        // 2nd problem
+
+        //https://www.hackerrank.com/challenges/handshake/problem?isFullScreen=true
+        function handshake(n) {
+            // Write your code here
+            for (let i = 0; i < n.length; i++) {
+                let num = 0;
+                for (let j = 1; j < n[i]; j++) {
+                    num += j;
+                }
+                console.log(num);
+            }
+
+
+        }
+
+        const input = [1, 2];
+        handshake(input);
+        //https://www.hackerrank.com/challenges/handshake/problem?isFullScreen=true
+    </script>
+</body>
+
+</html>
