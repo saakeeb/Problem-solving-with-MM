@@ -59,13 +59,119 @@
                 }
                 console.log(num);
             }
-
-
         }
-
         const input = [1, 2];
         handshake(input);
         //https://www.hackerrank.com/challenges/handshake/problem?isFullScreen=true
+
+        // https://leetcode.com/problems/palindrome-number/submissions/
+        var isPalindrome = function (x) {
+            x = String(x);
+            var y = "";
+            for (var i = x.length - 1; i >= 0; i--) {
+                y += x[i];
+            }
+            if (x !== y) {
+                return false;
+            }
+            return true;
+        };
+        // https://leetcode.com/problems/palindrome-number/submissions/
+
+        // https://www.interviewbit.com/problems/reverse-the-string/
+        module.exports = {
+            //param A : string
+            //return a strings
+            solve: function (A) {
+                let b = A.split(" ").reverse();
+                var i = 0;
+                while (i < b.length) {
+                    if (b[i] === '') {
+                        b.splice(i, 1);
+                    } else {
+                        ++i;
+                    }
+                }
+
+                return b.join(" ");
+            }
+        };
+        // https://www.interviewbit.com/problems/reverse-the-string/
+
+        // https://leetcode.com/problems/two-sum
+        var twoSum = function (nums, target) {
+            var arr = [];
+            for (let i = 0; i < nums.length - 1; i++) {
+                for (let j = i + 1; j < nums.length; j++) {
+                    if (nums[i] + nums[j] === target) {
+                        arr.push(i, j)
+                    }
+                }
+            }
+            return arr;
+        };
+        // https://leetcode.com/problems/two-sum
+
+        // https://leetcode.com/problems/contains-duplicate/submissions/
+        var containsDuplicate = function (nums) {
+            for (let i = 0; i < nums.length - 1; i++) {
+                for (let j = i + 1; j < nums.length; j++) {
+                    if (nums[i] === nums[j]) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        };
+        // https://leetcode.com/problems/contains-duplicate/submissions/
+
+        // https://leetcode.com/problems/max-consecutive-ones/submissions/
+        var findMaxConsecutiveOnes = function (nums) {
+            let one = [];
+            let a = 0;
+            let m = 0;
+            for (let i = 0; i < nums.length; i++) {
+                if (nums[i] === 1) {
+                    a++;
+                }
+                else if (nums[i] === 0) {
+                    a = 0;
+                }
+                one.push(a);
+            }
+            for (let i = 0; i < one.length; i++) {
+                if (m < one[i]) {
+                    m = one[i];
+                }
+            }
+            return m;
+        };
+        // https://leetcode.com/problems/max-consecutive-ones/submissions/
+
+        //https://www.interviewbit.com/problems/fizzbuzz/
+        module.exports = {
+            //param A : integer
+            //return a array of strings
+            fizzBuzz: function (A) {
+                let a = [];
+                for (let i = 1; i <= A; i++) {
+                    if ((i % 5 === 0) && (i % 3 === 0)) {
+                        a.push('FizzBuzz');
+                    }
+                    else if (i % 3 === 0) {
+                        a.push('Fizz');
+                    }
+                    else if (i % 5 === 0) {
+                        a.push('Buzz');
+                    }
+                    else {
+                        a.push(i);
+                    }
+                }
+                return a;
+            }
+        };
+        //https://www.interviewbit.com/problems/fizzbuzz/
     </script>
 </body>
 
