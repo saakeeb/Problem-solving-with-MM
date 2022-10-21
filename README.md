@@ -1,1 +1,4 @@
-# Problem-solving-with-c
+## Problem-solving-with-MM
+
+
+## 1st week

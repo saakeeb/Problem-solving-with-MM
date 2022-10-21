@@ -13,6 +13,11 @@
 
     <script>
         // 1st problem
+        /*
+        Write a code to find ‘minimum’ value from a list of n numbers, where 1 <= n <= 1000 and the numbers can be any integers.
+        For example, if n=5 and the list is: 1, 6, 8, 10, 999
+        The result should be: 0
+        */
         const first_array = [2, 4, 6, 7, 9, 3, 1];
         let most_minimal_digit = first_array[0];
         let most_maximum_digit = first_array[0];
@@ -31,6 +36,11 @@
         // 1st problem
 
         // 2nd problem
+        /*
+        Write a code find the ‘longest string’ from a list of strings.
+        For example if the given strings are: ‘I’, ‘love’, ‘my country’, ‘very’, ‘much’
+        The result should be: ‘my country’
+        */
         const string_array = ['my', 'name', 'is', 'sakib', 'i', 'am', 'a', 'frontend', 'developer'];
         let smallest_string = string_array[0];
         let biggest_string = string_array[0];
@@ -48,6 +58,46 @@
         console.log('smallest_string=> ', smallest_string);
         console.log('biggest_string=> ', biggest_string);
         // 2nd problem
+
+        // 3rd problem
+        /*
+        Convert a positive decimal number to it’s binary representation.
+        For example, if the given decimal number is: 8
+        The result should be: 1000 
+        */
+        function n(n) {
+            let bin = 0;
+            let rem = 0;
+            let i = 1;
+
+            while (n !== 0) {
+                rem = n % 2;
+                n = Math.floor(n / 2);
+                bin = bin + rem * i;
+                i *= 10;
+            }
+            console.log(`Bin : ${bin}`);
+        }
+        n(8);
+        // 3rd problem
+
+        // 4th problem
+        /*
+        Given two numbers x and n, find the value of x^n (x to the power n)
+        */
+        function n(a, b) {
+            let num = a;
+            for (let i = 1; i < b; i++) {
+                num *= a;
+            }
+            console.log(`num : ${num}`);
+        }
+        n(3, 3);
+        // 4th problem
+
+        // 5th problem
+        
+        // 5th problem
 
         //https://www.hackerrank.com/challenges/handshake/problem?isFullScreen=true
         function handshake(n) {
