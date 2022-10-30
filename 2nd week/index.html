@@ -56,31 +56,44 @@
         }
         // https://www.hackerrank.com/challenges/strange-advertising/problem?isFullScreen=true
 
+        //3- https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+        var twoSum = function (numbers, target) {
+            let left = 0, right = numbers.length - 1;
+            while (left < right) {
+                let sum = numbers[left] + numbers[right];
+                if (sum === target) return [left + 1, right + 1];
+                else if (sum < target) left++;
+                else right--
+            }
+            return [-1, -1];
+        };
+        // https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+
         //4- https://leetcode.com/problems/first-unique-character-in-a-string/submissions/
         var firstUniqChar = function (s) {
-                let a = {};
-                for (let obj of s) {
-                    a[obj] = ++a[obj] || 1;
-                }
-                let ans;
-                
-                for (let obj in a) {
-                    if (a[obj] === 1) {
-                        ans = obj;
-                        break;
-                    }
-                }
+            let a = {};
+            for (let obj of s) {
+                a[obj] = ++a[obj] || 1;
+            }
+            let ans;
 
-                for (let a in s) {
-                    if (s[a] === ans) {
-                        return a;
-                    }
+            for (let obj in a) {
+                if (a[obj] === 1) {
+                    ans = obj;
+                    break;
                 }
-                return -1;
-            };
+            }
+
+            for (let a in s) {
+                if (s[a] === ans) {
+                    return a;
+                }
+            }
+            return -1;
+        };
         // https://leetcode.com/problems/first-unique-character-in-a-string/submissions/
 
-        // https://leetcode.com/problems/find-all-duplicates-in-an-array/submissions/
+        //5- https://leetcode.com/problems/find-all-duplicates-in-an-array/submissions/
         var findDuplicates = function (nums) {
             let obj = {};
             for (let val of nums) {
@@ -96,6 +109,34 @@
             return res;
         };
         // https://leetcode.com/problems/find-all-duplicates-in-an-array/submissions/
+
+        // https://codesandbox.io/s/vanilla?file=/src/index.js
+        var plusOne = function (digits) {
+            let res = [];
+            const allAreNine = digits.every(n => n === 9);
+            if (allAreNine) {
+                let digit = Array(digits.length).fill(0);
+                res = [1, ...digit];
+                return res;
+            }
+
+            res = [...digits];
+
+            let exValue = 1;
+            for (let i = res.length - 1; i >= 0; i--) {
+                let sum = res[i] + exValue;
+                if (sum === 10) {
+                    res[i] = 0;
+                    exValue = 1;
+                }
+                else {
+                    res[i] = sum;
+                    exValue = 0;
+                }
+            }
+            return res;
+        };
+        // https://codesandbox.io/s/vanilla?file=/src/index.js
     </script>
 </body>
 
