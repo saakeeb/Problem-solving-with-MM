@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3RD Week</title>
+</head>
+<body>
+    <h1>3rd Week</h1>
+
+    <script>
+        //1- https://leetcode.com/problems/roman-to-integer/
+        var romanToInt = function (s) {
+                const map = {
+                    'I': 1,
+                    'V': 5,
+                    'X': 10,
+                    'L': 50,
+                    'C': 100,
+                    'D': 500,
+                    'M': 1000,
+                };
+
+                if (s.length === 1) return map[s[0]];
+                let res = 0;
+                for (let i = 0; i < s.length; i++) {
+                    if (map[s[i]] < map[s[i + 1]]) {
+                        res += map[s[i + 1]] - map[s[i]];
+                        i++;
+                    } else {
+                        res += map[s[i]];
+                    }
+                }
+                return res;
+            };
+        //1- https://leetcode.com/problems/roman-to-integer/
+
+        //2- https://leetcode.com/problems/majority-element/solutions/
+        var majorityElement = function (nums) {
+                let ar = {};
+                for (let obj of nums) {
+                    ar[obj] = ++ar[obj] || 1;
+                }
+                let res = 0;
+                let arnum = 0;
+                for (let num in ar) {
+                    if (arnum < ar[num]) {
+                        arnum = ar[num];
+                        res = num;
+                    }
+                }
+                return res;
+            };
+        //2- https://leetcode.com/problems/majority-element/solutions/
+
+        //4- https://leetcode.com/problems/missing-number/solutions/?languageTags=javascript
+        function(nums) {
+                // if(nums.length === 1) return 1;
+                let obj = {};
+                for (let i in nums) {
+                    obj[nums[i]] = obj[nums[i]] + 1 || 1;
+                }
+                let num = 0;
+                for (let i in obj) {
+                    if (num == i) {
+                        num++;
+                    }
+                    else {
+                        return num;
+                    }
+                }
+                return num;
+            };
+        //4- https://leetcode.com/problems/missing-number/solutions/?languageTags=javascript
+    </script>
+</body>
+</html>
