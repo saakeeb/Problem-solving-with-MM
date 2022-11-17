@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$th week</title>
+</head>
+<body>
+    <h1>4th week</h1>
+
+    <script>
+        //1- https://www.hackerrank.com/challenges/staircase/problem?isFullScreen=true
+        function staircase(n) {
+                // Write your code here
+                let pat = "";
+                for (let i = 1; i <= n; i++) {
+                    for (let space = 1; space <= n - i; space++) {
+                        pat += ' ';
+                    }
+                    for (let hash = 1; hash <= i; hash++) {
+                        pat += '#';
+                    }
+                    pat += "\n";
+                }
+                console.log(pat);
+            }
+        //1- https://www.hackerrank.com/challenges/staircase/problem?isFullScreen=true
+    </script>
+</body>
+</html>

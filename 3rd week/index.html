@@ -73,6 +73,82 @@
                 return num;
             };
         //4- https://leetcode.com/problems/missing-number/solutions/?languageTags=javascript
+        //5- https://leetcode.com/problems/happy-number/
+        function fn(n) {
+                let sum = 0;
+                let map = new Map();
+                console.log('map', map);
+                while (true) {
+                    if (n === 1) {
+                        return true;
+                    }
+                    if (map.has(n)) {
+                        return false;
+                    }
+                    else {
+                        map.set(n, n);
+                    }
+                    sum = 0;
+                    while (n !== 0) {
+                        console.log('sum out', sum);
+                        console.log('n out', n);
+                        sum += Math.floor(n % 10) * Math.floor(n % 10);
+                        console.log('sum in', sum);
+                        n = Math.floor(n / 10);
+                        console.log('n', n);
+                    }
+                    n = sum;
+                }
+            }
+        //5- https://leetcode.com/problems/happy-number/
+        //6- https://leetcode.com/problems/merge-similar-items/
+        var mergeSimilarItems = function (items1, items2) {
+                let arr = [...items1, ...items2];
+                let newArr = [];
+                for (let i = 0; i < arr.length; i++) {
+                    let array1 = arr[i][0];
+                    let array2 = arr[i][1];
+                    for (let j = i + 1; j < arr.length; j++) {
+                        if (array1 === arr[j][0]) {
+                            array2 += arr[j][1];
+                            arr[j][0] = 0;
+                        }
+                    }
+                    if (array1 !== 0) {
+                        newArr.push([array1, array2]);
+                    }
+                }
+                newArr = newArr.sort((a, b) => a[0] - b[0]);
+                return newArr;
+            };
+        //6- https://leetcode.com/problems/merge-similar-items/
+        //7- https://www.hackerrank.com/challenges/flipping-bits/problem?isFullScreen=true
+        const flippingBits = n => to32Bit(n).map(v => (v === 1) ? v = 0 : v = 1).reverse()
+                .reduce((a, v, i) => v === 1 ? a + Math.pow(2, i) : a, 0);
+
+            function to32Bit(n, arr = []) {
+                if (n > 1) {
+                    arr.push(n % 2)
+                    n = Math.floor(n / 2)
+                    return to32Bit(n, arr);
+                } else {
+                    arr.push(n)
+                }
+                if (arr.length > 32) {
+                    return 'Too big number'
+                }
+                if (arr.length === 32) {
+                    return arr.reverse()
+                }
+                console.log('c1', [...arr]);
+                console.log('c2', [...Array(32 - arr.length).fill(0), ...arr.reverse()]);
+
+                return [...Array(32 - arr.length).fill(0), ...arr.reverse()];
+            }
+
+            let ans = to32Bit(22);
+            console.log('ans', ans);
+        //7- https://www.hackerrank.com/challenges/flipping-bits/problem?isFullScreen=true
     </script>
 </body>
 </html>
