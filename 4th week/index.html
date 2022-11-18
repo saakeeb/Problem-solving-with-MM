@@ -26,6 +26,41 @@
                 console.log(pat);
             }
         //1- https://www.hackerrank.com/challenges/staircase/problem?isFullScreen=true
+        //2- https://leetcode.com/problems/spiral-matrix/
+        var spiralOrder = function (matrix) {
+                let res = []
+                while (matrix.length) {
+                    const first = matrix.shift();
+                    res.push(...first)
+                    for (const m of matrix) {
+                        let val = m.pop()
+                        if (val)
+                            console.log('val', val);
+
+                        res.push(val);
+                        m.reverse()
+                    }
+                    matrix.reverse()
+                }
+                let index = res.indexOf(undefined);
+                if (index > 0) {
+                    res = res.slice(0, index);
+                }
+                return res
+            };
+        //2- https://leetcode.com/problems/spiral-matrix/
+        //3- https://www.hackerrank.com/challenges/diagonal-difference/problem?isFullScreen=true
+        function diagonalDifference(arr) {
+                // Write your code here
+                let num1 = 0;
+                let num2 = 0;
+                for (let i = 0, j = arr.length - 1; i < arr.length; i++, j--) {
+                    num1 += arr[i][i];
+                    num2 += arr[i][j];
+                }
+                return Math.abs(num1 - num2);
+            }
+        //3- https://www.hackerrank.com/challenges/diagonal-difference/problem?isFullScreen=true
     </script>
 </body>
 </html>
