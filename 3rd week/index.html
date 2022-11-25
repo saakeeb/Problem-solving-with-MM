@@ -258,6 +258,22 @@
             return res[mid];
         }
         //12- https://www.hackerrank.com/challenges/find-the-median/problem?isFullScreen=true
+        // incertion sort
+        function fn(n, k) {
+            n.push(k);
+            let temp;
+            for (let i = n.length - 1; i >= 0; i--) {
+                if (n[i] < n[i - 1]) {
+                    temp = n[i];
+                    n[i] = n[i - 1];
+                    n[i - 1] = temp;
+                }
+            }
+            return n;
+        };
+
+        console.log('sort', fn([1, 3, 5, 7], 4));
+        // incertion sort
     </script>
 </body>
 
